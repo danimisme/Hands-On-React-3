@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-
+import Header from "./components/Header";
 import "./App.css";
 import axios from "axios";
+import CardProduct from "./components/CardProduct";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -23,20 +24,8 @@ function App() {
 
   return (
     <>
-      <div>
-        <h1>Fake Store Api</h1>
-      </div>
-      <div className="card-container">
-        {products.map((product) => (
-          <div key={product.id} className="card-product">
-            <img src={product.image} alt={product.title} />
-            <div>
-              <h3>{product.title}</h3>
-              <p>{product.price}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+      <Header text="Fake Store" />
+      <CardProduct products={products} />
     </>
   );
 }
